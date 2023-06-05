@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package client_service;
+
+option go_package = "genproto/client_service";
+import "google/protobuf/struct.proto";
+
+message Client{
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string address = 5;
+    string phone_number = 6;
+    string driving_license_number = 7;
+    string passport_number = 8;
+    string photo = 9;
+    string driving_number_given_place = 10;
+    string driving_number_given_date = 11;
+    string driving_number_expired = 12;
+    bool is_blocked = 13;
+    string propiska = 14;
+    string passport_pinfl = 15;
+    string additional_phone_number = 16;
+    string created_at = 17;
+    string updated_at = 18;
+}
+
+message CreateClient{
+    string first_name = 1;
+    string last_name = 2;
+    string address = 3;
+    string phone_number = 4;
+    string driving_license_number = 5;
+    string passport_number = 6;
+    string photo = 7;
+    string driving_number_given_place = 8;
+    string driving_number_given_date = 9;
+    string driving_number_expired = 10;
+    string propiska = 11;
+    string passport_pinfl = 12;
+    string additional_phone_number = 13;
+    string created_at = 14;
+    string updated_at = 15;
+}
+
+message UpdateClient{
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string address = 4;
+    string phone_number = 5;
+    string driving_license_number = 6;
+    string passport_number = 7;
+    string photo = 8;
+    string driving_number_given_place = 9;
+    string driving_number_given_date = 10;
+    string driving_number_expired = 11;
+    string propiska = 12;
+    string passport_pinfl = 13;
+    string additional_phone_number = 14;
+}
+
+message UpdatePatchClient {
+    string id = 1;
+    google.protobuf.Struct fields = 2;
+}
+
+message GetListClientRequest {
+    int64 offset = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListClientResponse {
+    int64 count = 1;
+    repeated Client clients = 2;
+}
+
+message CLientPrimaryKey {
+    string id = 1;
+}
+
+message CreateOTP {
+    string phone_number = 1;
+}
+
+message VerifyOTP {
+    string phone_number = 1;
+    string code = 2;
+}
+
+
+message ClientPhoneNumberReq {
+    string phone_number = 1;
+}

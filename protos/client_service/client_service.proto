@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package client_service;
+
+option go_package = "genproto/client_service";
+
+
+import "google/protobuf/empty.proto";
+import "client.proto";
+
+
+service ClientService {
+    rpc Create(CreateClient) returns (Client);
+    rpc GetByID(CLientPrimaryKey) returns (Client);
+    rpc GetList(GetListClientRequest) returns (GetListClientResponse);
+    rpc Update(UpdateClient) returns (Client);
+    rpc UpdatePatch(UpdatePatchClient) returns (Client);
+    rpc Delete(CLientPrimaryKey) returns (google.protobuf.Empty);
+
+
+    rpc CreateUserOTP(CreateOTP) returns (google.protobuf.Empty);
+    rpc VerifyUserOTP(VerifyOTP) returns (google.protobuf.Empty);
+    rpc Check(ClientPhoneNumberReq) returns (Client);
+}

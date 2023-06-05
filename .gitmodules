@@ -1,0 +1,3 @@
+[submodule "car24_protos"]
+	path = car24_protos
+	url = https://github.com/abdurahmon-saydullayev/car24_protos.git
