@@ -42,7 +42,7 @@ func (u *userRepo) Create(ctx context.Context, req *client_service.CreateClient)
 		driving_number_expired,
 		propiska,
 		passport_pinfl,
-		additional_phone_number,
+		additional_phone_numbers,
 		created_at,
 		updated_at
 	) VALUES($1, $2, $3, $4, $5, $6,$7,$8,$9,$10,$11,$12,$13,$14, NOW(), NOW())
@@ -90,7 +90,7 @@ func (u *userRepo) GetByPK(ctx context.Context, req *client_service.CLientPrimar
 			driving_number_expired,
 			propiska,
 			passport_pinfl,
-			additional_phone_number,
+			additional_phone_numbers,
 			created_at,
 			updated_at
 		FROM "client"
@@ -186,10 +186,10 @@ func (u *userRepo) GetList(ctx context.Context, req *client_service.GetListClien
 			driving_number_expired,
 			propiska,
 			passport_pinfl,
-			additional_phone_number,
+			additional_phone_numbers,
 			TO_CHAR(created_at, 'YYYY-MM-DD HH24:MI:SS'),
 			TO_CHAR(updated_at, 'YYYY-MM-DD HH24:MI:SS')
-		FROM "user"
+		FROM "client"
 	`
 	if len(req.GetSearch()) > 0 {
 		filter += " AND (first_name || ' ' || last_name) ILIKE '%' || '" + req.Search + "' || '%' "

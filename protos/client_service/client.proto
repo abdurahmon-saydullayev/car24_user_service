@@ -39,8 +39,6 @@ message CreateClient{
     string propiska = 11;
     string passport_pinfl = 12;
     string additional_phone_number = 13;
-    string created_at = 14;
-    string updated_at = 15;
 }
 
 message UpdateClient{
